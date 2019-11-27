@@ -26,7 +26,6 @@ def ranking(): # Getting the rank of players, returning a sorted list of the nam
     rankedplayers = rankedplayers[::-1]
 
 def scoreboard(): #printing sorted player name and score
-    print()
     for name in rankedplayers:
         for player in players:
             if name == player.name:
@@ -36,4 +35,3 @@ ranking()
 
 # print(rankedplayers)
 scoreboard()
-print()
