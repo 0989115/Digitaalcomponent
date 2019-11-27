@@ -7,7 +7,7 @@ class player:
         self.isalive = isalive
 
     def playerDeath(self):
-        player.isalive = False
+        self.isalive = False
 
     def calculateScore(self):
         self.score = self.cannons + self.coins
@@ -17,3 +17,9 @@ class player:
 
     def loseCoin(self):
         self.coins -= 1
+
+    def addCannon(self):
+        self.cannons += 1
+
+    def addCoins(self):
+        self.coins += 1
