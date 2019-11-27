@@ -36,3 +36,4 @@ ranking()
 
 # print(rankedplayers)
 scoreboard()
+print()

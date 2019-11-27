@@ -17,3 +17,4 @@ class player:
 
     def loseCoin(self):
         player.coins -= 1
+print()
