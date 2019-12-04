@@ -1,0 +1,231 @@
+def setup():
+    global titleFont, dFont, deckChosen, text1, text2, text3, textc4, d1, d2, d3, dc4,title,task,chosen,c1,c2,c3,c4, notChosen, i1, i2, i3, i4, instr, instruction, cont, cfm, t1, t2, t3, t4
+    size(1200, 900)
+    titleFont = createFont("Bahnschrift", 32)
+    dFont = createFont('Consalas', 20)
+    deckChosen = False
+    
+    notChosen = '#e8cb95'
+    c1 = c2 = c3 = c4 = notChosen
+    chosen = '#ba8e3c'
+    
+    i1 = 0
+    i2 = 0
+    i3 = 0
+    i4 = 0
+    t1 = ''
+    t2 = ''
+    t3 = ''
+    t4 = ''
+    
+    title = 'Kies je kaarten'
+    text1 = 'Lazy'
+    d1 = 'Je hoeft niet uit je stoel te komen'
+    text2 = 'Active'
+    d2 = 'Voor de sportieve mensen'
+    text3 = 'Denkende'
+    d3 = 'Voor de mensen met een groot brein'
+    textc4 = 'Informatica'
+    dc4 = '01100011 011010 1010101 0010101010'
+    instr = 'Instructies'
+    instruction = 'Er zijn vier verschillende themas kaarten. \nKies welke jij wil gebruiken of combineer meerdere themas'
+    cont = '        Druk \n        Enter \nom door te gaan'
+    cfm = False
+    
+def draw():
+    global cfm
+    
+    background('#ffedcc')
+    
+    #Instructions
+    fill(notChosen)
+    rect(35,15,225,50)
+    textFont(titleFont)
+    fill(0)
+    text(title, 40,50)
+    fill(notChosen)
+    rect(35, 100, 225, 300)
+    fill(0)
+    text(instr, 65, 135)
+    textFont(dFont)
+    text(instruction, 50, 160, 200, 250)
+    
+    fill(chosen)
+    circle(150,600,200)
+    fill(0)
+    textFont(dFont)
+    text(cont, 80, 570)
+    
+    #Rectangles
+    strokeWeight(5)
+    strokeCap(ROUND)
+    fill(c1)
+    rect(480, 70, 200, 300)
+    rect(470, 80, 200, 300)
+    rect(460, 90, 200 , 300)
+    rect(450, 100, 200, 300)
+    rect(440, 110, 200, 300)
+    rect(430 , 120, 200, 300)
+    rect(420, 130, 200 ,300)
+    rect(410, 140, 200, 300)
+    rect(400, 150, 200 ,300)
+
+    fill(c2)
+    rect(480, 470, 200, 300)
+    rect(470, 480, 200, 300)
+    rect(460, 490, 200 ,300)
+    rect(450, 500, 200, 300)
+    rect(440, 510, 200 ,300)
+    rect(430, 520, 200, 300)
+    rect(420, 530, 200 ,300)
+    rect(410, 540, 200, 300)
+    rect(400, 550, 200 ,300)
+    
+    fill(c3)
+    rect(880, 70, 200 ,300)
+    rect(870, 80, 200, 300)
+    rect(860, 90, 200 ,300)
+    rect(850, 100, 200, 300)
+    rect(840, 110, 200 ,300)
+    rect(830, 120, 200, 300)
+    rect(820, 130, 200 ,300)
+    rect(810, 140, 200, 300)
+    rect(800, 150, 200 ,300)
+    
+    fill(c4)
+    rect(880, 470, 200, 300)
+    rect(870, 480, 200, 300)
+    rect(860, 490, 200 ,300)
+    rect(850, 500, 200, 300)
+    rect(840, 510, 200 ,300)
+    rect(830, 520, 200, 300)
+    rect(820, 530, 200 ,300)
+    rect(810, 540, 200, 300)
+    rect(800, 550, 200 ,300)
+    
+    #Titles
+    fill(0)
+    textFont(titleFont)
+    text(text1, 428 , 190)
+    text(text2, 818 , 190)
+    text(text3, 422 , 590)
+    text(textc4, 825 , 590)
+    
+
+    
+    #Desciptions
+    fill('#3b3b3b')
+    textFont(dFont)
+    text(d1, 428 , 220,125, 250)
+    text(d2, 828 , 220,125, 250)
+    text(d3, 428 , 620,125, 250)
+    text(dc4, 828 , 620,125, 250)
+    
+    if keyPressed: 
+        if key == '1':
+            cfm = True
+            
+    if cfm == True:
+        fill('#e0e0e0')
+        rect(300,300,500,250)
+        
+        if noChosens:
+            fill(0)
+            textFont(titleFont)
+            cstr = 'Jij hebt niets gekozen'
+            text(cstr, 400, 350)
+            fill('#bababa')
+            rect(600, 475, 120, 40)
+            fill(0)
+            textFont(dFont)
+            text('Go back', 620, 500)
+        
+        else:    
+            fill(0)
+            textFont(titleFont)
+            cstr = 'Jij hebt gekozen'
+            text(cstr, 400, 350)
+            textFont(dFont)
+            text(t1, 350 , 410)
+            text(t2, 350 , 440)
+            text(t3, 350 , 470)
+            text(t4, 350 , 500)
+            
+            fill('#bababa')
+            rect(600, 400, 120, 40)
+            rect(600, 475, 120, 40)
+            fill(0)
+            text('Confirm', 620, 430)
+            text('Go back', 620, 500)
+        
+    
+
+    
+    
+
+def mousePressed():
+    global c1, c2, c3, c4, i1, i2, i3, i4, t1, t2,t3 ,t4, noChosens, cfm
+    noChosens = i1 % 2 == 0 and i2 % 2 == 0 and i3 % 2 == 0 and i4 % 2 == 0
+    
+    leftSide = mouseX >= 400 and mouseX <= 600
+    rightSide = mouseX >= 800 and mouseX <= 1000
+    up = mouseY >= 150 and mouseY <= 450
+    down = mouseY >= 550 and mouseY <= 850
+    
+    goBack = mouseY >= 475 and mouseY <= 515 and mouseX >= 600 and mouseX <= 720
+    confirm = mouseY >= 400 and mouseY <= 440 and mouseX >= 600 and mouseX <= 720
+    print(mouseX, mouseY)
+    
+    
+    
+    if leftSide and up:
+        print('lazy deck')
+        i1+=1
+        if i1 % 2 == 0:
+            c1 = notChosen
+            t1 = ''
+        else:
+            c1 = chosen
+            t1 = 'Luie deck'
+        
+    if leftSide and down:
+        print('Think deck') 
+        i2+=1
+        if i2 % 2 == 0:
+            c2 = notChosen
+            t2 =''
+        else:
+            c2 = chosen
+            t2 = 'Denkende deck'
+       
+    if rightSide and up:
+        print('Active deck')
+        i3+=1
+        if i3 % 2 == 0:
+            c3 = notChosen
+            t3 = ''
+        else:
+            c3 = chosen
+            t3 = 'Actieve deck'
+        
+   
+ 
+    if rightSide and down:
+        print('inf deck')
+        i4+=1
+        if i4 % 2 == 0:
+            c4 = notChosen
+            t4 = 'Active deck'
+        else:
+            c4 = chosen
+            t4 = 'Informatica deck'
+    
+    if cfm == True and goBack:
+        cfm = False
+    
+    if cfm == True and confirm and not noChosens:
+        deckChosen = True
+       
+
+    print(i1,i2,i3,i4)
+    
